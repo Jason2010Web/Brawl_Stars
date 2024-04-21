@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="de">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Brawl Stars</title>
+        <link rel="stylesheet" type="text/css" href="">
+
+        <style>
+            *{
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            ::-webkit-scrollbar {
+                background-color: transparent;
+                width: 0px;
+            }
+            header{
+                width: 100vw;
+                height: 200px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img{
+                    height: 180px;
+                }
+            }
+            
+            .Content{
+                padding-inline: 50px;
+                padding-bottom: 50px;
+                text-align: center;
+            }
+            .Content-Maps{
+                padding-inline: 50px;
+                padding-bottom: 50px;
+                text-align: center;
+                display: none;
+            }
+            .Content-Game_Modes{
+                padding-inline: 50px;
+                padding-bottom: 50px;
+                text-align: center;
+                display: none;
+            }
+            .content{
+                width: calc(100vw - 100px);
+                padding-inline: 50px;
+                padding-bottom: 50px;
+                text-align: left;
+
+                .Brawler{
+                    img{
+                        width: 100px;
+                        height: 100px;
+                        border-radius: 10px;
+                        margin-bottom: 20px;
+                    }
+                    p{
+                        margin-bottom: 5px;
+                        font-weight: 400;
+                    }
+                    h3{
+                        font-size: 1.2rem;
+                    }
+                }
+                .starPowers{
+                    margin-left: 20px;
+                    p{
+                        font-weight: 400;
+                    }
+                }
+                .map{
+                    display: flex;
+                    img{
+                        width: 200px;
+                        border-radius: 10px;
+                        margin-right: 20px;
+                    }
+                    p{
+                        margin-bottom: 5px;
+                        font-weight: 400;
+                    }
+                    h3{
+                        font-size: 1.2rem;
+                    }
+                }
+                .mode{
+                    p{
+                        margin-bottom: 5px;
+                        font-weight: 400;
+                    }
+                    h3{
+                        font-size: 1.2rem;
+                    }
+                    h2{
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+
+            #input{
+                width: 300px;
+                height: 40px;
+                border-radius: 20px;
+                border: 1px solid black;
+                outline: 0;
+                padding-inline: 15px;
+                box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+            }
+            button{
+                width: 40px;
+                height: 40px;
+                border-radius: 20px;
+                border: 1px solid black;
+                outline: 0;
+                background-color: white;
+                text-align: center;
+                box-shadow: 2px 2px 1px rgb(0, 0, 0, 0.5);
+            }
+            #input:hover{
+                box-shadow: 1px 1px 1px rgb(0, 0, 0, 0.5);
+                translate: 1px 1px;
+            }
+            button:hover{
+                box-shadow: 1px 1px 1px rgb(0, 0, 0, 0.5);
+                translate: 1px 1px;
+            }
+
+            #input2{
+                width: 300px;
+                height: 40px;
+                border-radius: 20px;
+                border: 1px solid black;
+                outline: 0;
+                padding-inline: 15px;
+                box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+            }
+            #button2{
+                width: 40px;
+                height: 40px;
+                border-radius: 20px;
+                border: 1px solid black;
+                outline: 0;
+                background-color: white;
+                text-align: center;
+                box-shadow: 2px 2px 1px rgb(0, 0, 0, 0.5);
+            }
+            #input2:hover{
+                box-shadow: 1px 1px 1px rgb(0, 0, 0, 0.5);
+                translate: 1px 1px;
+            }
+            #button2:hover{
+                box-shadow: 1px 1px 1px rgb(0, 0, 0, 0.5);
+                translate: 1px 1px;
+            }
+            #input3{
+                width: 300px;
+                height: 40px;
+                border-radius: 20px;
+                border: 1px solid black;
+                outline: 0;
+                padding-inline: 15px;
+                box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+            }
+            #button3{
+                width: 40px;
+                height: 40px;
+                border-radius: 20px;
+                border: 1px solid black;
+                outline: 0;
+                background-color: white;
+                text-align: center;
+                box-shadow: 2px 2px 1px rgb(0, 0, 0, 0.5);
+            }
+            #input3:hover{
+                box-shadow: 1px 1px 1px rgb(0, 0, 0, 0.5);
+                translate: 1px 1px;
+            }
+            #button3:hover{
+                box-shadow: 1px 1px 1px rgb(0, 0, 0, 0.5);
+                translate: 1px 1px;
+            }
+            .every_Content{
+                display: flex;
+            }
+
+            .tabs{
+                width: calc(100vw);
+                padding-inline: 30vw;
+                height: 100px;
+                margin-bottom: 50px;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                .tab{
+                    display: inline-block;
+                    width: 50vw;
+                    display: flex;
+                    justify-content: center;
+                    padding-bottom: 15px;
+                    margin-inline: 5px;
+                    cursor: pointer;
+                }
+                .tab_brawler{
+                    border-bottom: 2px solid rgba(0, 0, 0, 0.695);
+                }
+                .tab_map{
+                    border-bottom: none;
+                }
+                .tab_game_modes{
+                    border-bottom: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+
+        <header>
+            <img src="brawl-stars-logo-brawl-stars-icon-transparent-free-png.jpg" alt="Brawl Stars Logo">
+        </header>
+
+
+        <div class="tabs">
+            <div class="tab tab_brawler">
+                <h2>Brawler</h2>
+            </div>
+            <div class="tab tab_map">
+                <h2>Maps</h2>
+            </div>
+            <div class="tab tab_game_modes">
+                <h2>Game Modes</h2>
+            </div>
+        </div>
+        <div class="every_Content">
+            <div class="Content">
+                <h2>Brawler with Rarity, Gadgets, Star Powers and more</h2>
+                <br>
+                <input type="text" id="input" placeholder="Search Brawlers by name">
+                <button onclick="get_Brawlers()">&#10004;</button>
+                <br>
+                <div class="content" id="content">
+                
+                </div>
+            </div>
+            <div class="Content-Maps">
+                <h2>Maps with Name, Image, Game Mode and more</h2>
+                <br>
+                <input type="text" id="input2" placeholder="Search Maps by name">
+                <button id="button2" onclick="get_maps()">&#10004;</button>
+                <br>
+                <div class="content" id="content2">
+                
+                </div>
+            </div>
+            <div class="Content-Game_Modes">
+                <h2>Game Modes with Name, Tutorials and more </h2>
+                <br>
+                <input type="text" id="input3" placeholder="Search Game Modes by name">
+                <button id="button3" onclick="get_game_modes()">&#10004;</button>
+                <br>
+                <div class="content" id="content3">
+                
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+            const URL = 'https://api.brawlapi.com/v1/brawlers'
+
+            async function get_Brawlers(){
+                document.getElementById("content").innerHTML = /*html*/``
+                const input = document.getElementById("input").value.toLowerCase();
+
+                const response = await fetch(URL)
+                var data = await response.json()
+                var brawlers = data.list
+
+                let filtered_Brawlers = brawlers.filter(brawler => brawler.name.toLowerCase().includes(input))
+                console.log(filtered_Brawlers)
+
+                filtered_Brawlers.forEach(brawler => {
+                    let content = document.getElementById("content")
+                    let name = brawler.name
+                    let img = brawler.imageUrl
+                    let description = brawler.description
+                    let rarity = brawler.rarity.name
+                    let rarity_color = brawler.rarity.color
+
+                    content.innerHTML += /*html*/`
+                        <br>
+                        <div class="Brawler">
+                            <img src="${img}" alt="">
+                            <div class="informations">
+                                <p>
+                                    <h3>Name:</h3> 
+                                    <p>${name}</p>
+                                </p>
+                                <p>
+                                    <h3>Desciption:</h3> 
+                                    <p>${description}</p>
+                                </p>
+                                <p>
+                                    <h3>Rarity:</h3> 
+                                    <p style="color: ${rarity_color}; font-weight: 900;">${rarity}</p>
+                                </p>
+                                <p>
+                                    <h3>Star Powers:</h3>
+                    `
+
+                    for (let i = 0; i < brawler.starPowers.length; i++){
+                        let starPower_name = brawler.starPowers[i].name
+                        let starPower_description = brawler.starPowers[i].description
+
+                        content.innerHTML += /*html*/`
+                            <h4 class="starPowers">${starPower_name}:</h3>
+                            <p class="starPowers">${starPower_description}</p>
+                            <br>
+                        `
+                    }
+                    content.innerHTML += /*html*/ `
+                        </p>
+                        <p>
+                            <h3>Gadgets:</h3> <br>
+                    `
+                    for (let i = 0; i < brawler.gadgets.length; i++){
+                        let starPower_name = brawler.gadgets[i].name
+                        let starPower_description = brawler.gadgets[i].description
+
+                        content.innerHTML += /*html*/`
+                            <h4 class="starPowers">${starPower_name}:</h3>
+                            <p class="starPowers">${starPower_description}</p>
+                            <br>
+                        `
+                    }
+                    content.innerHTML += /*html*/ `
+                        </p>
+                    `
+                });
+            }
+            get_Brawlers()
+        </script>
+        <script>
+            const URL_Maps = "https://api.brawlapi.com/v1/maps"
+
+            async function get_maps(){
+                document.getElementById("content2").innerHTML = ``
+                const input = document.getElementById("input2").value.toLowerCase();
+
+                const response = await fetch(URL_Maps)
+                var data = await response.json()
+                var maps = data.list
+
+                let filtered_Maps = maps.filter(map => map.name.toLowerCase().includes(input))
+                console.log(filtered_Maps)
+
+                filtered_Maps.forEach(map => {
+                    let content = document.getElementById("content2")
+                    let name = map.name
+                    let img = map.imageUrl
+                    let game_mode = map.gameMode.name
+                    let disabled = map.disabled
+
+                    content.innerHTML += /*html*/ `
+                        <br>
+                        <div class="map">
+                            <img src="${img}" alt="">
+                            <div class="information">
+                                <p>
+                                    <h3>Name:</h3>
+                                    <p>${name}</p>
+                                    <br>
+                                </p>
+                                <p>
+                                    <h3>Game Mode:</h3>
+                                    <p>${game_mode}</p>
+                                    <br>
+                                </p>
+                                <p>
+                                    <h3>Disabled:</h3>
+                                    <p>${disabled}</p>
+                                </p>
+                            </div>
+                        </div>
+                    `
+                });
+            }
+            get_maps()
+        </script>
+
+
+        <script>
+            const URL_Game_Modes = "https://api.brawlapi.com/v1/gamemodes"
+
+            async function get_game_modes(){
+                document.getElementById("content3").innerHTML = ``
+                const input = document.getElementById("input3").value.toLowerCase();
+
+                const response = await fetch(URL_Game_Modes)
+                var data = await response.json()
+                var game_modes = data.list
+
+                let filtered_Game_Modes = game_modes.filter(mode => mode.name.toLowerCase().includes(input))
+                console.log(filtered_Game_Modes)
+
+                filtered_Game_Modes.forEach(mode => {
+                    let content = document.getElementById("content3")
+                    let name = mode.name
+                    let disabled = mode.disabled
+                    let tutorial = mode.tutorial
+                    let title = mode.title
+                    let title_color = mode.color
+
+                    content.innerHTML += /*html*/ `
+                        <br>
+                        <div class="mode">
+                            <div class="information">
+                                
+                                <p>
+                                    <h3>Name:</h3>
+                                    <p>${name}</p>
+                                    <br>
+                                </p>
+                                <p>
+                                    <h3 style="color: ${title_color}">${title}:</h3>
+                                </p>
+                                <p>
+                                    <h3>Tutorial:</h3>
+                                    <p>${tutorial}</p>
+                                </p>
+                                <p>
+                                    <h3>Disabled:</h3>
+                                    <p>${disabled}</p>
+                                </p>
+                            </div>
+                        </div>
+                    `
+                });
+            }
+            get_game_modes()
+        </script>
+        <script>
+            document.querySelector(".tab_map").addEventListener("click", function(){
+                document.querySelector(".tab_map").style.borderBottom = "2px solid rgba(0, 0, 0, 0.695)"
+                document.querySelector(".tab_brawler").style.borderBottom = "none"
+                document.querySelector(".tab_game_modes").style.borderBottom = "none"
+                document.querySelector(".Content").style.display = "none"
+                document.querySelector(".Content-Maps").style.display = "block"
+                document.querySelector(".Content-Game_Modes").style.display = "none"
+            })
+            document.querySelector(".tab_brawler").addEventListener("click", function(){
+                document.querySelector(".tab_map").style.borderBottom = "none"
+                document.querySelector(".tab_brawler").style.borderBottom = "2px solid rgba(0, 0, 0, 0.695)"
+                document.querySelector(".Content").style.display = "block"
+                document.querySelector(".Content-Maps").style.display = "none"
+                document.querySelector(".tab_game_modes").style.borderBottom = "none"
+                document.querySelector(".Content-Game_Modes").style.display = "none"
+            })
+            document.querySelector(".tab_game_modes").addEventListener("click", function(){
+                document.querySelector(".tab_map").style.borderBottom = "none"
+                document.querySelector(".tab_brawler").style.borderBottom = "none"
+                document.querySelector(".Content").style.display = "none"
+                document.querySelector(".Content-Maps").style.display = "none"
+                document.querySelector(".tab_game_modes").style.borderBottom = "2px solid rgba(0, 0, 0, 0.695)"
+                document.querySelector(".Content-Game_Modes").style.display = "block"
+            })
+        </script>
+
+    </body>
+</html>
