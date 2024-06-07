@@ -76,6 +76,20 @@
                         font-size: 1.2rem;
                     }
                 }
+                .starPower{
+                    display: flex;
+                    flex-direction: row;
+
+                    img{
+                        max-height: 3rem;
+                    }
+
+
+                    .starPower_description{
+                        display: flex;
+                        flex-direction: column;
+                    }
+                }
                 .starPowers{
                     margin-left: 20px;
                     p{
@@ -293,7 +307,7 @@
 
             async function get_Brawlers(){
                 document.getElementById("content").innerHTML = /*html*/``
-                const input = document.getElementById("input").value.toLowerCase();
+                const input = document.getElementById("input").value.toLowerCase() || brawler.rarity.name.toLowerCase().includes(input);
 
                 const response = await fetch(URL)
                 var data = await response.json()
@@ -336,8 +350,13 @@
                         let starPower_description = brawler.starPowers[i].description
 
                         content.innerHTML += /*html*/`
-                            <h4 class="starPowers">${starPower_name}:</h3>
-                            <p class="starPowers">${starPower_description}</p>
+                            <div class="starPower">
+                                <img src="${brawler.starPowers[i].imageUrl}"></img>
+                                <div class="starPower_description">
+                                    <h4 class="starPowers">${starPower_name}:</h3>
+                                    <p class="starPowers">${starPower_description}</p>
+                                </div>
+                            </div>
                             <br>
                         `
                     }
@@ -351,8 +370,13 @@
                         let starPower_description = brawler.gadgets[i].description
 
                         content.innerHTML += /*html*/`
-                            <h4 class="starPowers">${starPower_name}:</h3>
-                            <p class="starPowers">${starPower_description}</p>
+                            <div class="starPower">
+                                <img src="${brawler.gadgets[i].imageUrl}"></img>
+                                <div class="starPower_description">
+                                    <h4 class="starPowers">${starPower_name}:</h3>
+                                    <p class="starPowers">${starPower_description}</p>
+                                </div>
+                            </div>
                             <br>
                         `
                     }
