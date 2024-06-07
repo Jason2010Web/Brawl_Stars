@@ -313,7 +313,7 @@
                 var data = await response.json()
                 var brawlers = data.list
 
-                let filtered_Brawlers = brawlers.filter(brawler => brawler.name.toLowerCase().includes(input) || brawler.rarity.name.toLowerCase().includes(input))
+                let filtered_Brawlers = brawlers.filter(brawler => brawler.name.toLowerCase().includes(input))
                 console.log(filtered_Brawlers)
 
                 filtered_Brawlers.forEach(brawler => {
