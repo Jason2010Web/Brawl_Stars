@@ -18,13 +18,6 @@
                 background-color: transparent;
                 width: 0px;
             }
-            body{
-                width: 100vw;
-                translate: 7px;
-                margin-right: -15px;
-                padding: 0;
-                overflow-y: hidden;
-            }
             header{
                 width: 100vw;
                 height: 200px;
@@ -113,6 +106,15 @@
                     }
                 }
                 .mode{
+                    display: flex;
+                    flex-direction: row;
+                    .image{
+                        img{
+                            width: 15vw;
+                            max-width: 150px;
+                            margin-right: 2vw;
+                        }
+                    }
                     p{
                         margin-bottom: 5px;
                         font-weight: 400;
@@ -283,7 +285,7 @@
                 <h2>Maps with Name, Image, Game Mode and more</h2>
                 <br>
                 <input type="text" id="input2" placeholder="Search Maps by it's name">
-                <button id="button2" onclick="get_maps()">&#10004;</button>
+                <button onclick="get_maps()">&#10004;</button>
                 <br>
                 <div class="content" id="content2">
                 
@@ -301,189 +303,211 @@
             </div>
         </div>
 
-
         <script>
-            const URL = 'https://api.brawlapi.com/v1/brawlers'
+            const URL = 'brawlers.json'
 
-            async function get_Brawlers(){
+            function get_Brawlers(){
                 document.getElementById("content").innerHTML = /*html*/``
-                const input = document.getElementById("input").value.toLowerCase()
+                const input = document.getElementById("input").value.toLowerCase();
 
-                const response = await fetch(URL)
-                var data = await response.json()
-                var brawlers = data.list
+                fetch(URL)
+                    .then(response => {
+                        return response.json();
 
-                let filtered_Brawlers = brawlers.filter(brawler => brawler.name.toLowerCase().includes(input) || brawler.rarity.name.toLowerCase().includes(input))
-                console.log(filtered_Brawlers)
+                    })
+                    .then(data =>{
+                        var brawlers = data.list   
+                        let filtered_Brawlers = brawlers.filter(brawler => brawler.name.toLowerCase().includes(input)|| brawler.rarity.name.toLowerCase().includes(input))//|| brawler.rarity.name.toLowerCase().includes(input)
+                        console.log(filtered_Brawlers)
 
-                filtered_Brawlers.forEach(brawler => {
-                    let content = document.getElementById("content")
-                    let name = brawler.name
-                    let img = brawler.imageUrl
-                    let description = brawler.description
-                    let rarity = brawler.rarity.name
-                    let rarity_color = brawler.rarity.color
+                        filtered_Brawlers.forEach(brawler => {
+                            let content = document.getElementById("content")
+                            let name = brawler.name
+                            let img = brawler.imageUrl
+                            let description = brawler.description
+                            let rarity = brawler.rarity.name
+                            let rarity_color = brawler.rarity.color
 
-                    content.innerHTML += /*html*/`
-                        <br>
-                        <div class="Brawler">
-                            <img src="${img}" alt="">
-                            <div class="informations">
-                                <p>
-                                    <h3>Name:</h3> 
-                                    <p>${name}</p>
+                            content.innerHTML += /*html*/`
+                                <br>
+                                <div class="Brawler">
+                                    <img src="${img}" alt="">
+                                    <div class="informations">
+                                        <p>
+                                            <h3>Name:</h3> 
+                                            <p>${name}</p>
+                                        </p>
+                                        <p>
+                                            <h3>Desciption:</h3> 
+                                            <p>${description}</p>
+                                        </p>
+                                        <p>
+                                            <h3>Rarity:</h3> 
+                                            <p style="color: ${rarity_color}; font-weight: 900;">${rarity}</p>
+                                        </p>
+                                        <p>
+                                            <h3>Star Powers:</h3>
+                            `
+
+                            for (let i = 0; i < brawler.starPowers.length; i++){
+                                let starPower_name = brawler.starPowers[i].name
+                                let starPower_description = brawler.starPowers[i].description
+
+                                content.innerHTML += /*html*/`
+                                    <div class="starPower">
+                                        <img src="${brawler.starPowers[i].imageUrl}"></img>
+                                        <div class="starPower_description">
+                                            <h4 class="starPowers">${starPower_name}:</h3>
+                                            <p class="starPowers">${starPower_description}</p>
+                                        </div>
+                                    </div>
+                                    <br>
+                                `
+                            }
+                            content.innerHTML += /*html*/ `
                                 </p>
                                 <p>
-                                    <h3>Description:</h3> 
-                                    <p>${description}</p>
+                                    <h3>Gadgets:</h3> <br>
+                            `
+                            for (let i = 0; i < brawler.gadgets.length; i++){
+                                let starPower_name = brawler.gadgets[i].name
+                                let starPower_description = brawler.gadgets[i].description
+
+                                content.innerHTML += /*html*/`
+                                    <div class="starPower">
+                                        <img src="${brawler.gadgets[i].imageUrl}"></img>
+                                        <div class="starPower_description">
+                                            <h4 class="starPowers">${starPower_name}:</h3>
+                                            <p class="starPowers">${starPower_description}</p>
+                                        </div>
+                                    </div>
+                                    <br>
+                                `
+                            }
+                            content.innerHTML += /*html*/ `
                                 </p>
-                                <p>
-                                    <h3>Rarity:</h3> 
-                                    <p style="color: ${rarity_color}; font-weight: 900;">${rarity}</p>
-                                </p>
-                                <p>
-                                    <h3>Star Powers:</h3>
-                    `
-
-                    for (let i = 0; i < brawler.starPowers.length; i++){
-                        let starPower_name = brawler.starPowers[i].name
-                        let starPower_description = brawler.starPowers[i].description
-
-                        content.innerHTML += /*html*/`
-                            <div class="starPower">
-                                <img src="${brawler.starPowers[i].imageUrl}"></img>
-                                <div class="starPower_description">
-                                    <h4 class="starPowers">${starPower_name}:</h3>
-                                    <p class="starPowers">${starPower_description}</p>
-                                </div>
-                            </div>
-                            <br>
-                        `
-                    }
-                    content.innerHTML += /*html*/ `
-                        </p>
-                        <p>
-                            <h3>Gadgets:</h3> <br>
-                    `
-                    for (let i = 0; i < brawler.gadgets.length; i++){
-                        let starPower_name = brawler.gadgets[i].name
-                        let starPower_description = brawler.gadgets[i].description
-
-                        content.innerHTML += /*html*/`
-                            <div class="starPower">
-                                <img src="${brawler.gadgets[i].imageUrl}"></img>
-                                <div class="starPower_description">
-                                    <h4 class="starPowers">${starPower_name}:</h3>
-                                    <p class="starPowers">${starPower_description}</p>
-                                </div>
-                            </div>
-                            <br>
-                        `
-                    }
-                    content.innerHTML += /*html*/ `
-                        </p>
-                    `
-                });
-            }
+                            `
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Es gab ein Problem mit der Fetch-Operation:', error);
+                    });
+                }
             get_Brawlers()
         </script>
         <script>
-            const URL_Maps = "https://api.brawlapi.com/v1/maps"
+            const URL_Maps = 'maps.json'
 
-            async function get_maps(){
-                document.getElementById("content2").innerHTML = ``
+            function get_maps(){
+                document.getElementById("content2").innerHTML = /*html*/``
                 const input = document.getElementById("input2").value.toLowerCase();
 
-                const response = await fetch(URL_Maps)
-                var data = await response.json()
-                var maps = data.list
+                fetch(URL_Maps)
+                    .then(response => {
+                        return response.json();
+                    })
+                    .then(data =>{
+                        var maps = data.list
 
-                let filtered_Maps = maps.filter(map => map.name.toLowerCase().includes(input) && map.disabled == false)
-                console.log(filtered_Maps)
+                        let filtered_Maps = maps.filter(map => (map.name.toLowerCase().includes(input) || map.gameMode.name.toLowerCase().includes(input)) && map.disabled == false)
+                        console.log(filtered_Maps)
 
-                filtered_Maps.forEach(map => {
-                    let content = document.getElementById("content2")
-                    let name = map.name
-                    let img = map.imageUrl
-                    let game_mode = map.gameMode.name
-                    let disabled = map.disabled
+                        filtered_Maps.forEach(map => {
+                            let content = document.getElementById("content2")
+                            let name = map.name
+                            let img = map.imageUrl
+                            let game_mode = map.gameMode.name
+                            let disabled = map.disabled
 
-                    content.innerHTML += /*html*/ `
-                        <br>
-                        <div class="map">
-                            <img src="${img}" alt="">
-                            <div class="information">
-                                <p>
-                                    <h3>Name:</h3>
-                                    <p>${name}</p>
-                                    <br>
-                                </p>
-                                <p>
-                                    <h3>Game Mode:</h3>
-                                    <p>${game_mode}</p>
-                                    <br>
-                                </p>
-                                <p>
-                                    <h3>Disabled:</h3>
-                                    <p>${disabled}</p>
-                                </p>
-                            </div>
-                        </div>
-                    `
-                });
-            }
+                            content.innerHTML += /*html*/ `
+                                <br>
+                                <div class="map">
+                                    <img src="${img}" alt="">
+                                    <div class="information">
+                                        <p>
+                                            <h3>Name:</h3>
+                                            <p>${name}</p>
+                                            <br>
+                                        </p>
+                                        <p>
+                                            <h3>Game Mode:</h3>
+                                            <p>${game_mode}</p>
+                                            <br>
+                                        </p>
+                                        <p>
+                                            <h3>Disabled:</h3>
+                                            <p>${disabled}</p>
+                                        </p>
+                                    </div>
+                                </div>
+                            `
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Es gab ein Problem mit der Fetch-Operation:', error);
+                    });
+                }
             get_maps()
         </script>
 
 
         <script>
-            const URL_Game_Modes = "https://api.brawlapi.com/v1/gamemodes"
+            const URL_Game_Modes = "game_modes.json"
 
-            async function get_game_modes(){
-                document.getElementById("content3").innerHTML = ``
+            function get_game_modes(){
+                document.getElementById("content3").innerHTML = /*html*/``
                 const input = document.getElementById("input3").value.toLowerCase();
 
-                const response = await fetch(URL_Game_Modes)
-                var data = await response.json()
-                var game_modes = data.list
+                fetch(URL_Game_Modes)
+                    .then(response => {
+                        return response.json();
+                    })
+                    .then(data =>{
+                        var game_modes = data.list
 
-                let filtered_Game_Modes = game_modes.filter(mode => mode.name.toLowerCase().includes(input))
-                console.log(filtered_Game_Modes)
+                        let filtered_Game_Modes = game_modes.filter(mode => mode.name.toLowerCase().includes(input) || mode.name.toLowerCase().includes(input))
+                        console.log(filtered_Game_Modes)
 
-                filtered_Game_Modes.forEach(mode => {
-                    let content = document.getElementById("content3")
-                    let name = mode.name
-                    let disabled = mode.disabled
-                    let tutorial = mode.tutorial
-                    let title = mode.title
-                    let title_color = mode.color
+                        filtered_Game_Modes.forEach(mode => {
+                            let content = document.getElementById("content3")
+                            let name = mode.name
+                            let disabled = mode.disabled
+                            let tutorial = mode.tutorial
+                            let title = mode.title
+                            let title_color = mode.color
 
-                    content.innerHTML += /*html*/ `
-                        <br>
-                        <div class="mode">
-                            <div class="information">
-                                
-                                <p>
-                                    <h3>Name:</h3>
-                                    <p>${name}</p>
-                                </p>
-                                <p>
-                                    <h3 style="color: ${title_color}">${title}:</h3>
-                                </p>
-                                <p>
-                                    <h3>Tutorial:</h3>
-                                    <p>${tutorial}</p>
-                                </p>
-                                <p>
-                                    <h3>Disabled:</h3>
-                                    <p>${disabled}</p>
-                                    <br>
-                                </p>
-                            </div>
-                        </div>
-                    `
-                });
-            }
+                            content.innerHTML += /*html*/ `
+                                <br>
+                                <div class="mode">
+                                    <div class="image">
+                                        <image src="${mode.imageUrl}">
+                                    </div>
+                                    <div class="information">
+                                        <p>
+                                            <h3>Name:</h3>
+                                            <p>${name}</p>
+                                        </p>
+                                        <p>
+                                            <h3 style="color: ${title_color}">${title}:</h3>
+                                        </p>
+                                        <p>
+                                            <h3>Tutorial:</h3>
+                                            <p>${tutorial}</p>
+                                        </p>
+                                        <p>
+                                            <h3>Disabled:</h3>
+                                            <p>${disabled}</p>
+                                            <br>
+                                        </p>
+                                    </div>
+                                </div>
+                            `
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Es gab ein Problem mit der Fetch-Operation:', error);
+                    });
+                }
             get_game_modes()
         </script>
         <script>
