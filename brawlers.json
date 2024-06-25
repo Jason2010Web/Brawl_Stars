@@ -1,6 +1,148 @@
 {
     "list": [
         {
+            "id": 16000083,
+            "avatarId": 28000531,
+            "name": "Clancy",
+            "hash": "Clancy",
+            "path": "Clancy",
+            "fankit": "clancy",
+            "released": true,
+            "version": 1,
+            "link": "https://brawlify.com/brawlers/detail/Clancy",
+            "imageUrl": "https://cdn-old.brawlify.com/brawler/Clancy.png",
+            "imageUrl2": "https://cdn-old.brawlify.com/brawler-bs/Clancy.png",
+            "imageUrl3": "https://cdn-fankit.brawlify.com/clancy_pin.png",
+            "class": {
+                "id": 1,
+                "name": "Damage Dealer"
+            },
+            "rarity": {
+                "id": 5,
+                "name": "Mythic",
+                "color": "#fe5e72"
+            },
+            "unlock": null,
+            "description": "There's no turning back with Clancy (unless Hank orders him to). He's fully embraced his fake crustacean life and will do anything for his comrades.",
+            "descriptionHtml": "There's no turning back with Clancy (unless Hank orders him to). He's fully embraced his fake crustacean life and will do anything for his comrades.",
+            "starPowers": [
+                {
+                    "id": 23000772,
+                    "name": "Recon",
+                    "path": "Recon",
+                    "version": 1,
+                    "description": "Clancy starts the match with x tokens.",
+                    "descriptionHtml": "Clancy starts the match with <span style=\"color:#00cc00;\">x</span> tokens.",
+                    "imageUrl": "https://cdn-fankit.brawlify.com/clancy_starpower_01.png",
+                    "released": true
+                },
+                {
+                    "id": 23000773,
+                    "name": "Pumping Up",
+                    "path": "Pumping-Up",
+                    "version": 1,
+                    "description": "Clancy reloads all of his ammo on every enemy takedown.",
+                    "descriptionHtml": "Clancy reloads all of his ammo on every enemy takedown.",
+                    "imageUrl": "https://cdn-fankit.brawlify.com/clancy_starpower_02.png",
+                    "released": true
+                }
+            ],
+            "gadgets": [
+                {
+                    "id": 23000774,
+                    "name": "Snappy Shooting",
+                    "path": "Snappy-Shooting",
+                    "version": 1,
+                    "description": "Clancy gains double tokens for x seconds.",
+                    "descriptionHtml": "Clancy gains double tokens for <span style=\"color:#00cc00;\">x</span> seconds.",
+                    "imageUrl": "https://cdn-fankit.brawlify.com/clancy_gadget_01.png",
+                    "released": true
+                },
+                {
+                    "id": 23000775,
+                    "name": "Tactical Retreat",
+                    "path": "Tactical-Retreat",
+                    "version": 1,
+                    "description": "Clancy dashes and reloads x ammo",
+                    "descriptionHtml": "Clancy dashes and reloads <span style=\"color:#00cc00;\">x</span> ammo",
+                    "imageUrl": "https://cdn-fankit.brawlify.com/clancy_gadget_02.png",
+                    "released": true
+                }
+            ],
+            "videos": []
+        },
+        {
+            "id": 16000082,
+            "avatarId": 28000532,
+            "name": "Berry",
+            "hash": "Berry",
+            "path": "Berry",
+            "fankit": "berry",
+            "released": true,
+            "version": 1,
+            "link": "https://brawlify.com/brawlers/detail/Berry",
+            "imageUrl": "https://cdn-old.brawlify.com/brawler/Berry.png",
+            "imageUrl2": "https://cdn-old.brawlify.com/brawler-bs/Berry.png",
+            "imageUrl3": "https://cdn-fankit.brawlify.com/berry_pin.png",
+            "class": {
+                "id": 7,
+                "name": "Support"
+            },
+            "rarity": {
+                "id": 4,
+                "name": "Epic",
+                "color": "#d850ff"
+            },
+            "unlock": null,
+            "description": "Working at Mandy's Candy Shop, what could go wrong? EVERYTHING! Luckily, Berry has the patience and toughness of a workhorse. He seems to hate every second of his job, but at the end of his shift, you might catch a brief smile.",
+            "descriptionHtml": "Working at Mandy's Candy Shop, what could go wrong? EVERYTHING! Luckily, Berry has the patience and toughness of a workhorse. He seems to hate every second of his job, but at the end of his shift, you might catch a brief smile.",
+            "starPowers": [
+                {
+                    "id": 23000764,
+                    "name": "Floor Is Fine",
+                    "path": "Floor-Is-Fine",
+                    "version": 1,
+                    "description": "Berry gains x% increased reload speed when standing on his own melted ice cream.",
+                    "descriptionHtml": "Berry gains <span style=\"color:#00cc00;\">x%</span> increased reload speed when standing on his own melted ice cream.",
+                    "imageUrl": "https://cdn-fankit.brawlify.com/berry_starpower_01.png",
+                    "released": true
+                },
+                {
+                    "id": 23000765,
+                    "name": "Making A Mess",
+                    "path": "Making-A-Mess",
+                    "version": 1,
+                    "description": "Berry's basic attack gains x% extra damage on impact when painting an unpainted area.",
+                    "descriptionHtml": "Berry's basic attack gains <span style=\"color:#00cc00;\">x%</span> extra damage on impact when painting an unpainted area.",
+                    "imageUrl": "https://cdn-fankit.brawlify.com/berry_starpower_02.png",
+                    "released": true
+                }
+            ],
+            "gadgets": [
+                {
+                    "id": 23000766,
+                    "name": "Friendship Is Great",
+                    "path": "Friendship-Is-Great",
+                    "version": 1,
+                    "description": "Berry swipes his tail, knocking back enemies and healing nearby allies for x health.",
+                    "descriptionHtml": "Berry swipes his tail, knocking back enemies and healing nearby allies for <span style=\"color:#00cc00;\">x</span> health.",
+                    "imageUrl": "https://cdn-fankit.brawlify.com/berry_gadget_01.png",
+                    "released": true
+                },
+                {
+                    "id": 23000767,
+                    "name": "Healthy Additives",
+                    "path": "Healthy-Additives",
+                    "version": 1,
+                    "description": "Berry's next main attack area lasts for x% longer.",
+                    "descriptionHtml": "Berry's next main attack area lasts for <span style=\"color:#00cc00;\">x%</span> longer.",
+                    "imageUrl": "https://cdn-fankit.brawlify.com/berry_gadget_02.png",
+                    "released": true
+                }
+            ],
+            "videos": []
+        },
+        {
             "id": 16000081,
             "avatarId": 28000464,
             "name": "Lily",
@@ -387,7 +529,7 @@
                     "path": "Power-Hungry",
                     "version": 1,
                     "description": "Kit gains x% power from each Power Cube.",
-                    "descriptionHtml": "Kit gains <span style=\"color:#00cc00;\">x</span>% power from each Power Cube.",
+                    "descriptionHtml": "Kit gains <span style=\"color:#00cc00;\">x%</span> power from each Power Cube.",
                     "imageUrl": "https://cdn-fankit.brawlify.com/kit_starpower_01.png",
                     "released": true
                 },
@@ -1306,11 +1448,11 @@
             "starPowers": [
                 {
                     "id": 23000527,
-                    "name": "Bellomania",
-                    "path": "Bellomania",
+                    "name": "Single Bellomania",
+                    "path": "Single-Bellomania",
                     "version": 1,
-                    "description": "Chester's attack has an extra stage with four bells.",
-                    "descriptionHtml": "Chester's attack has an extra stage with four bells.",
+                    "description": "The first bell of Chester's attack sequence does x% damage.",
+                    "descriptionHtml": "The first bell of Chester's attack sequence does <span style=\"color:#00cc00;\">x%</span> damage.",
                     "imageUrl": "https://cdn-fankit.brawlify.com/chester_starpower_01.png",
                     "released": true
                 },
@@ -3005,8 +3147,8 @@
                 "color": "#fff11e"
             },
             "unlock": null,
-            "description": "Surge is souped-up soda fountain, always ready to get the party started! He's got the beats, the moves, and an endless supply of energy drinks.",
-            "descriptionHtml": "Surge is souped-up soda fountain, always ready to get the party started! He's got the beats, the moves, and an endless supply of energy drinks.",
+            "description": "Surge is a souped-up soda fountain, always ready to get the party started! He's got the beats, the moves, and an endless supply of energy drinks.",
+            "descriptionHtml": "Surge is a souped-up soda fountain, always ready to get the party started! He's got the beats, the moves, and an endless supply of energy drinks.",
             "starPowers": [
                 {
                     "id": 23000283,
