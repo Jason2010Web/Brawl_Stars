@@ -269,6 +269,9 @@
             <div class="tab tab_game_modes">
                 <h2>Game Modes</h2>
             </div>
+            <div class="tab tab_icons">
+                <h2>Icons</h2>
+            </div>
         </div>
         <div class="every_Content">
             <div class="Content">
@@ -518,6 +521,8 @@
                 document.querySelector(".Content").style.display = "none"
                 document.querySelector(".Content-Maps").style.display = "block"
                 document.querySelector(".Content-Game_Modes").style.display = "none"
+                document.querySelector(".tab_icons").style.borderBottom = "none"
+                document.querySelector(".Content-Icons").style.display = "none"
             })
             document.querySelector(".tab_brawler").addEventListener("click", function(){
                 document.querySelector(".tab_map").style.borderBottom = "none"
@@ -526,6 +531,8 @@
                 document.querySelector(".Content-Maps").style.display = "none"
                 document.querySelector(".tab_game_modes").style.borderBottom = "none"
                 document.querySelector(".Content-Game_Modes").style.display = "none"
+                document.querySelector(".tab_icons").style.borderBottom = "none"
+                document.querySelector(".Content-Icons").style.display = "none"
             })
             document.querySelector(".tab_game_modes").addEventListener("click", function(){
                 document.querySelector(".tab_map").style.borderBottom = "none"
@@ -534,6 +541,18 @@
                 document.querySelector(".Content-Maps").style.display = "none"
                 document.querySelector(".tab_game_modes").style.borderBottom = "2px solid rgba(0, 0, 0, 0.695)"
                 document.querySelector(".Content-Game_Modes").style.display = "block"
+                document.querySelector(".tab_icons").style.borderBottom = "none"
+                document.querySelector(".Content-Icons").style.display = "none"
+            })
+            document.querySelector(".tab_icons").addEventListener("click", function(){
+                document.querySelector(".tab_map").style.borderBottom = "none"
+                document.querySelector(".tab_brawler").style.borderBottom = "none"
+                document.querySelector(".Content").style.display = "none"
+                document.querySelector(".Content-Maps").style.display = "none"
+                document.querySelector(".tab_game_modes").style.borderBottom = "none"
+                document.querySelector(".Content-Game_Modes").style.display = "none"
+                document.querySelector(".tab_icons").style.borderBottom = "2px solid rgba(0, 0, 0, 0.695)"
+                document.querySelector(".Content-Icons").style.display = "block"
             })
         </script>
 
