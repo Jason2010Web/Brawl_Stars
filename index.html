@@ -250,6 +250,41 @@
                     flex: 1 0 150px;
                 }
             }
+
+            .star_power{
+                width: 3rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img{
+                    height: 3rem;
+                    margin-left: -15px;
+                }
+                ._{
+                    width: 1.2rem;
+                    height: auto;
+                    margin-left: -33px;
+                    margin-top: -3px;
+                }
+            }
+            .gadget{
+                width: 3rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img{
+                    height: 3rem;
+                    margin-left: -15px;
+                }
+                ._{
+                    width: 1.2rem;
+                    height: auto;
+                    margin-left: -33px;
+                    margin-top: -3px;
+                }
+            }
         </style>
     </head>
     <body>
@@ -352,17 +387,32 @@
                             for (let i = 0; i < brawler.starPowers.length; i++){
                                 let starPower_name = brawler.starPowers[i].name
                                 let starPower_description = brawler.starPowers[i].description
-
-                                content.innerHTML += /*html*/`
-                                    <div class="starPower">
-                                        <img src="${brawler.starPowers[i].imageUrl}"></img>
-                                        <div class="starPower_description">
-                                            <h4 class="starPowers">${starPower_name}:</h3>
-                                            <p class="starPowers">${starPower_description}</p>
+                                if (brawler.name == 'Clancy' || brawler.name == 'Berry'){
+                                    content.innerHTML += /*html*/`
+                                        <div class="starPower">
+                                            <div class="star_power">
+                                                <img src="Grafiken/Star_Power_Hintergrund.png" alt="">
+                                                <img class="_" src="${brawler.starPowers[i].imageUrl}" alt="">
+                                            </div>
+                                            <div class="starPower_description">
+                                                <h4 class="starPowers">${starPower_name}:</h3>
+                                                <p class="starPowers">${starPower_description}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <br>
-                                `
+                                        <br>
+                                    `
+                                }else{
+                                    content.innerHTML += /*html*/`
+                                        <div class="starPower">
+                                            <img src="${brawler.starPowers[i].imageUrl}" alt="">
+                                            <div class="starPower_description">
+                                                <h4 class="starPowers">${starPower_name}:</h3>
+                                                <p class="starPowers">${starPower_description}</p>
+                                            </div>
+                                        </div>
+                                        <br>
+                                    `
+                                }
                             }
                             content.innerHTML += /*html*/ `
                                 </p>
@@ -373,16 +423,32 @@
                                 let starPower_name = brawler.gadgets[i].name
                                 let starPower_description = brawler.gadgets[i].description
 
-                                content.innerHTML += /*html*/`
-                                    <div class="starPower">
-                                        <img src="${brawler.gadgets[i].imageUrl}"></img>
-                                        <div class="starPower_description">
-                                            <h4 class="starPowers">${starPower_name}:</h3>
-                                            <p class="starPowers">${starPower_description}</p>
+                                if (brawler.name == 'Clancy' || brawler.name == 'Berry'){
+                                    content.innerHTML += /*html*/`
+                                        <div class="starPower">
+                                            <div class="gadget">
+                                                <img src="Grafiken/Gadget_Hintergrund.png" alt="">
+                                                <img class="_" src="${brawler.gadgets[i].imageUrl}" alt="">
+                                            </div>
+                                            <div class="starPower_description">
+                                                <h4 class="starPowers">${starPower_name}:</h3>
+                                                <p class="starPowers">${starPower_description}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <br>
-                                `
+                                        <br>
+                                    `
+                                }else{
+                                    content.innerHTML += /*html*/`
+                                        <div class="starPower">
+                                            <img src="${brawler.gadgets[i].imageUrl}"></img>
+                                            <div class="starPower_description">
+                                                <h4 class="starPowers">${starPower_name}:</h3>
+                                                <p class="starPowers">${starPower_description}</p>
+                                            </div>
+                                        </div>
+                                        <br>
+                                    `
+                                }
                             }
                             content.innerHTML += /*html*/ `
                                 </p>
