@@ -407,7 +407,7 @@
                             for (let i = 0; i < brawler.starPowers.length; i++){
                                 let starPower_name = brawler.starPowers[i].name
                                 let starPower_description = brawler.starPowers[i].description
-                                if (brawler.name == 'Clancy' || brawler.name == 'Berry'){
+                                if (brawler.name != ''){
                                     content.innerHTML += /*html*/`
                                         <div class="starPower">
                                             <div class="star_power">
@@ -443,7 +443,7 @@
                                 let starPower_name = brawler.gadgets[i].name
                                 let starPower_description = brawler.gadgets[i].description
 
-                                if (brawler.name == 'Clancy' || brawler.name == 'Berry'){
+                                if (brawler.name != ''){
                                     content.innerHTML += /*html*/`
                                         <div class="starPower">
                                             <div class="gadget">
